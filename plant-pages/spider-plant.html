@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spider Plant - Green Homes</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script defer src="../app.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            <div class="search-container">
+                <input type="text" id="plant-search" placeholder="Search plants..." autocomplete="off" />
+                <ul id="search-suggestions" class="search-suggestions hidden"></ul>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#care-instructions">Care Instructions</a></li>
+            </ul>
+            <button id="profile-button" aria-label="User profile" class="profile-button">
+                <img src="../profile.png" alt="Profile" class="profile-logo" />
+            </button>
+            <button id="cart-button" aria-label="Shopping cart" class="cart-button">
+                🛒 <span id="cart-count">0</span>
+            </button>
+            <ul class="nav-links login-link-mobile">
+                <li><a href="../login.html">Login</a></li>
+            </ul>
+        </nav>
+        <aside id="side-menu" class="side-menu">
+            <div class="side-menu-header">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <span class="side-menu-title">green homes</span>
+            </div>
+            <ul>
+                <li id="login-menu-item"><a href="../login.html">Login / Sign Up</a></li>
+                <li id="logout-menu-item" style="display:none;"><button id="logout-button">Logout</button></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../flowering.html">Flowering Plants</a></li>
+                <li><a href="../indoor.html">Indoor Plants</a></li>
+                <li><a href="../hanging.html">Hanging Plants</a></li>
+                <li><a href="../medicinal.html">Medicinal Plants</a></li>
+            </ul>
+        </aside>
+    </header>
+
+    <main class="plant-detail-page">
+        <section class="plant-detail-container">
+            <div class="plant-image">
+<img src="../spider.webp" alt="Spider Plant" />
+            </div>
+            <div class="plant-info">
+                <h1>Spider Plant</h1>
+                <p>Easy to grow and great for hanging baskets.</p>
+                <div class="price-section">
+                    <span class="price">₹409.95</span>
+                </div>
+                <div class="btn-group">
+                    <button class="add-cart btn" data-id="3">Add to Cart</button>
+                    <button class="buy-now btn" data-id="3">Buy Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="care-instructions" class="care-instructions">
+            <h2>Care Instructions</h2>
+            <div class="care-cards">
+                <div class="care-card">
+                    <span class="care-symbol" aria-label="Sunlight">☀️</span>
+                    <p>Bright, indirect sunlight</p>
+                </div>
+                <div class="care-card">
+                    <span class="care-symbol" aria-label="Watering">💧</span>
+                    <p>Water once every 1–2 weeks</p>
+                </div>
+                <div class="care-card">
+                    <span class="care-symbol" aria-label="Temperature">🌡️</span>
+                    <p>18–24°C Optimal</p>
+                </div>
+                <div class="care-card">
+                    <span class="care-symbol" aria-label="Air">🍃</span>
+                    <p>Prefers dry air, no misting needed</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- User profile popup container -->
+    <div id="profile-popup" class="profile-popup hidden" role="dialog" aria-modal="true" aria-labelledby="profile-popup-title">
+        <h3 id="profile-popup-title">User Profile</h3>
+        <p><strong>Name:</strong> <span id="profile-name"></span></p>
+        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+        <button id="profile-logout-button" class="btn logout-btn">Log Out</button>
+    </div>
+
+    <div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-content">
+            <button id="close-cart" aria-label="Close cart">&times;</button>
+            <h2>Your Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total">
+                Total: <span id="cart-total">0.00</span>
+            </div>
+            <button id="checkout-button" class="btn">Checkout</button>
+        </div>
+    </div>
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
