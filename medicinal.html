@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Medicinal Plants - Green Homes</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header>
+<nav class="navbar">
+            <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            
+            <div class="search-container">
+                <input type="text" id="plant-search" placeholder="Search plants..." autocomplete="off" />
+                <ul id="search-suggestions" class="search-suggestions hidden"></ul>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+            </ul>
+            <!-- Profile button removed -->
+            <button id="cart-button" aria-label="Shopping cart" class="cart-button">
+                🛒 <span id="cart-count">0</span>
+            </button>
+            <ul class="nav-links login-link-mobile">
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <aside id="side-menu" class="side-menu">
+            <div class="side-menu-header">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <span class="side-menu-title">green homes</span>
+            </div>
+            
+            <ul>
+                <li id="login-menu-item"><a href="login.html">Login / Sign Up</a></li>
+                <li id="logout-menu-item" style="display:none;"><button id="logout-button">Logout</button></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flowering.html">Flowering Plants</a></li>
+                <li><a href="indoor.html">Indoor Plants</a></li>
+                <li><a href="hanging.html">Hanging Plants</a></li>
+                <li><a href="medicinal.html">Medicinal Plants</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </aside>
+    </header>
+
+    <!-- User profile popup container removed -->
+
+    <main>
+        <section class="hero" style="background-image: url('medicinal_hero.jpg');">
+            <h1>Medicinal Plants</h1>
+            <p>Discover the healing power of medicinal plants</p>
+        </section>
+
+        <section id="medicinal-plants" class="popular-plants">
+            <h2>Medicinal Plants</h2>
+            <div class="plant-cards" id="category-plant-cards">
+                <!-- Medicinal plant cards will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+<div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-content">
+            <button id="close-cart" aria-label="Close cart">&times;</button>
+            <h2>Your Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total">
+                Total: <span id="cart-total">0.00</span>
+            </div>
+            <button id="checkout-button" class="btn">Checkout</button>
+        </div>
+    </div>
+
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

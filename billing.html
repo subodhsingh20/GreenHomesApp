@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Green Homes - Billing</title>
+  <link rel="stylesheet" href="billing.css" />
+  <script defer src="billing.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📄 <strong>Billing Summary</strong></h1>
+    <p>Please review your order details below:</p>
+  </header>
+
+  <main class="billing-container">
+    <section id="billing-summary" class="billing-summary-box">
+      <h2>Billing Summary</h2>
+      <hr />
+      <div id="billing-items">
+        <!-- Billing items will be rendered here -->
+      </div>
+      <hr />
+      <p class="total-amount"><strong>Total Amount: ₹<span id="total-amount">0.00</span></strong></p>
+    </section>
+
+    <section class="address-form-box">
+      <h2>Enter New Address</h2>
+      <form id="billing-form" autocomplete="off">
+        <input type="text" id="fullName" name="fullName" placeholder="Full Name" required />
+        <input type="text" id="address" name="address" placeholder="Address" required />
+        <input type="text" id="city" name="city" placeholder="City" required />
+        <input type="text" id="state" name="state" placeholder="State" required />
+        <input type="text" id="zip" name="zip" placeholder="ZIP Code" required />
+        <button type="submit" class="btn save-address-btn">Save Address</button>
+      </form>
+    </section>
+  </main>
+
+  <section class="saved-addresses-section">
+    <h2>Saved Addresses</h2>
+    <ul id="saved-addresses" class="saved-addresses-list">
+      <!-- Saved addresses will be rendered here -->
+    </ul>
+  </section>
+
+  <div id="payment-method-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="payment-method-title">
+      <button class="close-btn" aria-label="Close payment method modal">&times;</button>
+      <h2 id="payment-method-title">Payment Method</h2>
+      <form id="payment-form">
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="upi" required />
+          <span class="radio-custom"></span>
+          <span class="payment-icon">🏦</span> UPI
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="creditCard" required />
+          <span class="radio-custom"></span>
+          <span class="payment-icon">💳</span> Credit Card
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="debitCard" required />
+          <span class="radio-custom"></span>
+          <span class="payment-icon">💳</span> Debit Card
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="cod" required />
+          <span class="radio-custom"></span>
+          <span class="payment-icon">💵</span> Cash on Delivery
+        </label>
+
+        <div id="card-details" style="display:none; margin-top: 10px;">
+          <label>
+            Card Number:<br/>
+<input type="text" name="cardNumber" maxlength="19" pattern="(\d{4} ?){4}" placeholder="1234 5678 9012 3456" />
+            <span class="error-message" id="cardNumber-error" aria-live="polite"></span>
+          </label><br/>
+          <label>
+            Expiry Date:<br/>
+            <input type="month" name="expiryDate" />
+            <span class="error-message" id="expiryDate-error" aria-live="polite"></span>
+          </label><br/>
+          <label>
+            CVV:<br/>
+<input type="password" name="cvv" maxlength="3" pattern="\d{3}" placeholder="123" />
+            <span class="error-message" id="cvv-error" aria-live="polite"></span>
+          </label><br/>
+        </div>
+
+        <div id="upi-details" style="display:none; margin-top: 10px;">
+          <label>
+            UPI Number:<br/>
+<input type="text" name="upiNumber" pattern="\w+@\w+" placeholder="example@bank" />
+            <span class="error-message" id="upiNumber-error" aria-live="polite"></span>
+          </label><br/>
+        </div>
+
+        <button type="submit" class="btn complete-payment-btn">Complete Payment</button>
+        <button type="button" class="btn cancel-payment-btn">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div id="order-confirmation-modal" aria-hidden="true" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="order-confirmation-title" style="background: white; max-width: 500px; margin: 10% auto; padding: 20px; border-radius: 8px; position: relative;">
+      <button class="close-btn" aria-label="Close order confirmation modal" style="position: absolute; top: 10px; right: 10px; font-size: 24px; background: none; border: none; cursor: pointer;">&times;</button>
+      <h2 id="order-confirmation-title">Order Confirmation</h2>
+      <div id="order-confirmation-details" style="margin-top: 15px; font-size: 1rem; color: #333;">
+        <!-- Order details will be populated here -->
+      </div>
+      <button id="order-confirmation-ok-btn" class="btn" style="margin-top: 20px; background-color: #168600; color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer;">Okay</button>
+    </div>
+  </div>
+</body>
+</html>

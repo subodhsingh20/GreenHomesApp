@@ -1,0 +1,547 @@
+/* General body and font */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eaf6ea;
+  margin: 2rem;
+  color: #2e7d32;
+}
+
+/* Header styling */
+header h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header p {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Main container for billing summary and address form */
+.billing-container {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Billing summary box */
+.billing-summary-box {
+  background-color: #f0f9f0;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+.billing-summary-box h2 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.billing-summary-box hr {
+  border: none;
+  border-top: 1px solid #a3d3a3;
+  margin: 0.5rem 0 1rem 0;
+}
+
+#billing-items p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  border-bottom: 1px dotted #a3d3a3;
+  padding-bottom: 0.3rem;
+}
+
+#billing-items p strong {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.total-amount {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  border-top: 2px dotted #a3d3a3;
+  padding-top: 0.5rem;
+}
+
+/* Address form box */
+.address-form-box {
+  background-color: #f0f9f0;
+  padding: 2rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.address-form-box h2 {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.address-form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.address-form-box input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #a3d3a3;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.address-form-box input:focus {
+  border-color: #4caf50;
+}
+
+.save-address-btn {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 700;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.save-address-btn:hover,
+.save-address-btn:focus {
+  background-color: #388e3c;
+  outline: none;
+}
+
+/* Saved addresses section */
+.saved-addresses-section {
+  background-color: #f9fdf9;
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.saved-addresses-section h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2e7d32;
+}
+
+.saved-addresses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.saved-addresses-list li {
+  background-color: #eaf6ea;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.saved-addresses-list li:last-child {
+  margin-bottom: 0;
+}
+
+.address-text {
+  flex: 1;
+  margin-right: 1rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-overflow: unset;
+}
+
+/* Buttons for saved addresses */
+.use-btn,
+.delete-btn {
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 70px;
+  margin-left: 0.5rem;
+}
+
+.use-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.use-btn:hover,
+.use-btn:focus {
+  background-color: #388e3c;
+  outline: none;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: #b71c1c;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .billing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .billing-summary-box,
+  .address-form-box {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .saved-addresses-section {
+    width: 90%;
+  }
+
+  /* Make saved addresses list items stack vertically on small screens */
+  .saved-addresses-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Make address text take full width and add margin below */
+  .saved-address-list .address-text,
+  .saved-addresses-list li p {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  /* Buttons stack vertically with spacing */
+  .saved-address-item button.use-address-btn,
+  .saved-address-item button.delete-address-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Adjust billing summary box and address form box padding and font size */
+  .billing-summary-box,
+  .address-form-box {
+    padding: 1rem 1.5rem;
+  }
+
+  .billing-summary-box h2,
+  .address-form-box h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust billing items font size */
+  #billing-items p {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust total amount font size */
+  .total-amount {
+    font-size: 1rem;
+  }
+
+  /* Adjust buttons font size and padding */
+  button,
+  .save-address-btn,
+  .complete-payment-btn,
+  .cancel-payment-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  /* Payment modal adjustments */
+  #payment-method-modal .modal-content {
+    width: 95%;
+    margin: 5% auto;
+    padding: 15px;
+  }
+}
+
+/* Modal styles for payment method popup */
+#payment-method-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#payment-method-modal .modal-content {
+  background-color: #f0f9f0;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  color: #2e7d32;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Close button */
+#payment-method-modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e7d32;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#payment-method-modal .close-btn:hover,
+#payment-method-modal .close-btn:focus {
+  color: #388e3c;
+  outline: none;
+}
+
+/* Payment method options container */
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Payment option label */
+.payment-option {
+  display: flex;
+  align-items: center;
+  background-color: #66bb6a; /* green */
+  border-radius: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #1b5e20; /* dark green text */
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(102, 187, 106, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  position: relative;
+}
+
+/* Payment option hover */
+.payment-option:hover {
+  background-color: #81c784;
+  box-shadow: 0 0 8px rgba(129, 199, 132, 0.7);
+}
+
+/* Hide native radio input */
+.payment-option input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio button */
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1b5e20;
+  border-radius: 50%;
+  margin-right: 12px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Radio checked state */
+.payment-option input[type="radio"]:checked + .radio-custom {
+  background-color: #1b5e20;
+  box-shadow: 0 0 5px #1b5e20;
+}
+
+/* Inner dot for checked radio */
+.radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.payment-option input[type="radio"]:checked + .radio-custom::after {
+  opacity: 1;
+}
+
+/* Payment icon */
+.payment-icon {
+  margin-right: 10px;
+  font-size: 1.3rem;
+  user-select: none;
+}
+
+/* Card and UPI details input styling */
+#card-details label,
+#upi-details label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #1b5e20;
+}
+
+#card-details input,
+#upi-details input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #a3d3a3;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#card-details input:focus,
+#upi-details input:focus {
+  border-color: #4caf50;
+}
+
+/* Error message styling */
+.error-message {
+  color: #e53935;
+  font-size: 0.9rem;
+  margin-top: 2px;
+  display: block;
+  min-height: 18px;
+}
+
+/* Smooth transition for showing/hiding card and UPI details */
+#card-details,
+#upi-details {
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+#card-details[style*="block"],
+#upi-details[style*="block"] {
+  max-height: 500px; /* enough to show content */
+  opacity: 1;
+}
+
+/* Buttons */
+.complete-payment-btn {
+  background-color: #66bb6a;
+  color: white;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100%;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(102, 187, 106, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.complete-payment-btn:hover,
+.complete-payment-btn:focus {
+  background-color: #4caf50;
+  outline: none;
+}
+
+.cancel-payment-btn {
+  background-color: #e53935;
+  color: white;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(229, 57, 53, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.cancel-payment-btn:hover,
+.cancel-payment-btn:focus {
+  background-color: #b71c1c;
+  outline: none;
+}
+
+/* Saved address buttons */
+.saved-address-item button.use-address-btn {
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 70px;
+  margin-left: 0.5rem;
+  background-color: #4caf50;
+  color: white;
+}
+
+.saved-address-item button.use-address-btn:hover,
+.saved-address-item button.use-address-btn:focus {
+  background-color: #388e3c;
+  outline: none;
+}
+
+.saved-address-item button.delete-address-btn {
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 70px;
+  margin-left: 0.5rem;
+  background-color: #e53935;
+  color: white;
+}
+
+.saved-address-item button.delete-address-btn:hover,
+.saved-address-item button.delete-address-btn:focus {
+  background-color: #b71c1c;
+  outline: none;
+}

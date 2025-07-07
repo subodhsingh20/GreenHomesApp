@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Green Homes - Home</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            
+            <div class="search-container">
+                <input type="text" id="plant-search" placeholder="Search plants..." autocomplete="off" />
+                <ul id="search-suggestions" class="search-suggestions hidden"></ul>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+            </ul>
+            <!-- Profile button removed -->
+            <button id="cart-button" aria-label="Shopping cart" class="cart-button">
+                🛒 <span id="cart-count">0</span>
+            </button>
+            <ul class="nav-links login-link-mobile">
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <aside id="side-menu" class="side-menu">
+            <div class="side-menu-header">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <span class="side-menu-title">green homes</span>
+            </div>
+            
+            <ul>
+                <li id="login-menu-item"><a href="login.html">Login / Sign Up</a></li>
+                <li id="logout-menu-item" style="display:none;"><button id="logout-button">Logout</button></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flowering.html">Flowering Plants</a></li>
+                <li><a href="indoor.html">Indoor Plants</a></li>
+                <li><a href="hanging.html">Hanging Plants</a></li>
+                <li><a href="medicinal.html">Medicinal Plants</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </aside>
+
+    <!-- User profile popup container removed -->
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Green Homes</h1>
+            <p>Your one-stop shop for beautiful home plants</p>
+            <a href="#categories" class="btn">Explore Plants</a>
+        </section>
+
+        <section id="categories" class="categories">
+            <h2>Plant Categories</h2>
+            <div class="category-cards">
+                <a href="flowering.html" id="flowering" class="category-card">
+                    <img src="floweringp.jpg" alt="Flowering Plants" />
+                    <h3>Flowering Plants</h3>
+                </a>
+                <a href="indoor.html" id="indoor" class="category-card">
+                    <img src="indoorp.jpg" alt="Indoor Plants" />
+                    <h3>Indoor Plants</h3>
+                </a>
+                <a href="hanging.html" id="hanging" class="category-card">
+                    <img src="hangingp.jpg" alt="Hanging Plants" />
+                    <h3>Hanging Plants</h3>
+                </a>
+                <a href="medicinal.html" id="medicinal" class="category-card">
+                    <img src="medicinalp.jpg" alt="Medicinal Plants" />
+                    <h3>Medicinal Plants</h3>
+                </a>
+            </div>
+        </section>
+
+        <section class="popular-plants">
+            <h2>Popular Plants</h2>
+            <div class="plant-cards" id="plant-cards">
+                <!-- Plant cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="why-choose-green-homes">
+            <h2>Why Choose Green Homes?</h2>
+            <div class="reasons-container">
+                <div class="reason">
+                    <img src="eco_friendly.webp" alt="Eco-Friendly Plants" />
+                    <h3>Eco-Friendly Plants</h3>
+                    <p>We offer plants that promote a sustainable and healthy environment.</p>
+                </div>
+                <div class="reason">
+                    <img src="care_tips_of_plants.jpg" alt="Expert Care Tips" />
+                    <h3>Expert Care Tips</h3>
+                    <p>Get expert advice to keep your plants thriving all year round.</p>
+                </div>
+                <div class="reason">
+                    <img src="fast_delivery.webp" alt="Fast Delivery" />
+                    <h3>Fast Delivery</h3>
+                    <p>Quick and reliable delivery right to your doorstep.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-subscribe">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest plant care tips, discounts, and updates delivered to your inbox.</p>
+            <form id="subscribe-form" class="subscribe-form">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                <button type="submit" class="btn subscribe-btn">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+<div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-content">
+            <button id="close-cart" aria-label="Close cart">&times;</button>
+            <h2>Your Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-total">
+                Total: <span id="cart-total">0.00</span>
+            </div>
+            <button id="checkout-button" class="btn">Checkout</button>
+        </div>
+    </div>
+
+    <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+    <!-- Popup modal for sign up / login -->
+    <div id="auth-popup" class="auth-popup hidden" role="dialog" aria-modal="true" aria-labelledby="auth-popup-title" aria-describedby="auth-popup-desc">
+        <div class="auth-popup-content">
+            <h2 id="auth-popup-title">Welcome to Green Homes!</h2>
+            <p id="auth-popup-desc">Please log in to continue.</p>
+            <div class="auth-popup-buttons">
+                <button id="login-btn" class="btn">Login</button>
+                <button id="cancel-btn" class="btn cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .auth-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        .auth-popup.hidden {
+            display: none;
+        }
+        .auth-popup-content {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 320px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .auth-popup-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .auth-popup-buttons .btn {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .auth-popup-buttons .btn:hover {
+            background-color: #45a049;
+        }
+        .auth-popup-buttons .cancel-btn {
+            background-color: #f44336;
+        }
+        .auth-popup-buttons .cancel-btn:hover {
+            background-color: #da190b;
+        }
+    </style>
+</body>
+</html>

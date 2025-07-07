@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Green Homes - Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            
+            <div class="search-container">
+                <input type="text" id="plant-search" placeholder="Search plants..." autocomplete="off" />
+                <ul id="search-suggestions" class="search-suggestions hidden"></ul>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+            </ul>
+            <button id="profile-button" aria-label="User profile" class="profile-button">
+                <img src="profile.png" alt="Profile" class="profile-logo" />
+            </button>
+            <button id="cart-button" aria-label="Shopping cart" class="cart-button">
+                🛒 <span id="cart-count">0</span>
+            </button>
+            <ul class="nav-links login-link-mobile">
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <aside id="side-menu" class="side-menu">
+            <div class="side-menu-header">
+                <button id="close-menu" aria-label="Close menu">&times;</button>
+                <span class="side-menu-title">green homes</span>
+            </div>
+            
+            <ul>
+                <li id="login-menu-item"><a href="login.html">Login / Sign Up</a></li>
+                <li id="logout-menu-item" style="display:none;"><button id="logout-button">Logout</button></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flowering.html">Flowering Plants</a></li>
+                <li><a href="indoor.html">Indoor Plants</a></li>
+                <li><a href="hanging.html">Hanging Plants</a></li>
+                <li><a href="medicinal.html">Medicinal Plants</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </aside>
+    </header>
+    <main class="login-container">
+        <div class="form-wrapper">
+            <h1 id="form-title">Login to Green Homes</h1>
+            <form id="login-form" class="auth-form">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required />
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required />
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            <form id="signup-form" class="auth-form hidden">
+                <label for="signup-name">Name</label>
+                <input type="text" id="signup-name" name="name" required />
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="email" required />
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" required />
+                <label for="signup-confirm-password">Confirm Password</label>
+                <input type="password" id="signup-confirm-password" name="confirmPassword" required />
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+
+            <p id="toggle-text">
+                Don't have an account? <button id="toggle-button" class="btn-link">Sign Up</button>
+            </p>
+            <p id="message" role="alert" aria-live="assertive"></p>
+        </div>
+    </main>
+</body>
+</html>

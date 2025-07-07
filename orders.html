@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order History</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="orders-toast.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-weight: 600;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .filters {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-group label {
+            font-weight: 600;
+        }
+        .filter-group select {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+        }
+        .order-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+        }
+        .order-header {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .order-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .order-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1 1 300px;
+        }
+        .order-info img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+        }
+        .order-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .order-details .product-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .order-details .price {
+            color: #555;
+            font-size: 1rem;
+        }
+        .order-status {
+            flex: 1 1 200px;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .status-text {
+            font-weight: 600;
+        }
+        .status-in-transit {
+            color: #2563eb; /* blue */
+        }
+        .status-completed {
+            color: #16a34a; /* green */
+        }
+        .status-cancelled {
+            color: #dc2626; /* red */
+        }
+        .order-actions {
+            display: flex;
+            gap: 10px;
+            flex: 1 1 150px;
+            justify-content: flex-end;
+        }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .btn-primary {
+            background-color: #168600;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #168600;
+            color: #e7e7e7;
+        }
+        .order-summary {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .order-summary strong {
+            font-weight: 600;
+        }
+        .product-bundle {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .product-bundle img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+        }
+        .show-details {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order History</h1>
+    <!-- Removed filters as per user request -->
+    <div id="ordersContainer">
+        <!-- Orders will be dynamically inserted here -->
+    </div>
+
+    <script src="orders.js"></script>
+</body>
+</html>

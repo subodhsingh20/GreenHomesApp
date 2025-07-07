@@ -1,0 +1,71 @@
+.toast-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.toast-message.show {
+    opacity: 1;
+}
+
+/* Confirmation toast specific styles */
+.confirmation-toast {
+    width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    right: auto;
+    z-index: 1100;
+}
+
+/* Style for buttons inside confirmation toast */
+.confirmation-toast button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-left: 12px;
+}
+
+/* Yes button style */
+.confirmation-toast button.btn-primary {
+    background-color: #ab3030; /* Dark green */
+    color: white;
+}
+
+.confirmation-toast button.btn-primary:hover {
+    background-color: #1b4d20; /* Darker green */
+}
+
+/* No button style */
+.confirmation-toast button.btn-secondary {
+    background-color: #555;
+    color: white;
+}
+
+.confirmation-toast button.btn-secondary:hover {
+    background-color: #333;
+}

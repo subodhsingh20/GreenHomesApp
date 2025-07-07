@@ -1,0 +1,36 @@
+const paymentModalCloseBtn = document.querySelector('#payment-method-modal .close-btn');
+    if (paymentModalCloseBtn) {
+        paymentModalCloseBtn.addEventListener('click', () => {
+            hidePaymentModal();
+        });
+    }
+=======
+
+    // Close button event listener for payment modal
+    const paymentModalCloseBtn = document.querySelector('#payment-method-modal .close-btn');
+    if (paymentModalCloseBtn) {
+        paymentModalCloseBtn.addEventListener('click', () => {
+            hidePaymentModal();
+        });
+    }
+
+    // Payment method radio buttons handling to show/hide input fields
+    const paymentMethodRadios = document.querySelectorAll('input[name="paymentMethod"]');
+    const cardDetailsDiv = document.getElementById('card-details');
+    const upiDetailsDiv = document.getElementById('upi-details');
+
+    paymentMethodRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const selectedValue = e.target.value;
+            if (selectedValue === 'creditCard' || selectedValue === 'debitCard') {
+                cardDetailsDiv.style.display = 'block';
+                upiDetailsDiv.style.display = 'none';
+            } else if (selectedValue === 'upi') {
+                cardDetailsDiv.style.display = 'none';
+                upiDetailsDiv.style.display = 'block';
+            } else if (selectedValue === 'cod') {
+                cardDetailsDiv.style.display = 'none';
+                upiDetailsDiv.style.display = 'none';
+            }
+        });
+    });
